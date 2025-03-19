@@ -1,4 +1,5 @@
-package com.example.appcalculadora
+package com.example.appcalculadora.main
+
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -12,9 +13,10 @@ import androidx.navigation.compose.composable
 @Composable
 fun NavigationComponent() {
     val navController = rememberNavController()
+    val viewModel = remember { CalculadoraViewModel() }
 
     NavHost(navController = navController, startDestination = "mainScreen") {
-        composable("mainScreen") { CalculatorScreen(navController) }
-        composable("history") { HistoryScreen(navController) }
+        composable("mainScreen") { CalculatorScreen(navController, viewModel) }
+        composable("history") { HistoryScreen(navController, viewModel) }
     }
 }
