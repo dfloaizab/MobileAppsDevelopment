@@ -1,21 +1,22 @@
-package com.example.appcalculadora
+package com.example.appcalculadora.main
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 
 @Composable
-fun CalculatorScreen(navController: NavController) {
+fun CalculatorScreen(navController: NavController, viewModel: CalculadoraViewModel) {
     var num1 by remember { mutableStateOf("") }
     var num2 by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = "Calculadora", style = MaterialTheme.typography.headlineLarge)
-        
+
         OutlinedTextField(
             value = num1,
             onValueChange = { num1 = it },
@@ -34,10 +35,18 @@ fun CalculatorScreen(navController: NavController) {
             horizontalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp)
         ) {
-            Button(onClick = { result = calcular(num1, num2, "+") }) { Text("+") }
-            Button(onClick = { result = calcular(num1, num2, "-") }) { Text("-") }
-            Button(onClick = { result = calcular(num1, num2, "*") }) { Text("*") }
-            Button(onClick = { result = calcular(num1, num2, "/") }) { Text("/") }
+            Button(onClick = { result = calcular(num1, num2, "+")
+                                viewModel.addCalculation("$num1 + $num2 = $result")
+                             }) { Text("+") }
+            Button(onClick = { result = calcular(num1, num2, "-")
+                                viewModel.addCalculation("$num1 + $num2 = $result")
+                             }) { Text("-") }
+            Button(onClick = { result = calcular(num1, num2, "*")
+                              viewModel.addCalculation("$num1 + $num2 = $result")
+                                }) { Text("*") }
+            Button(onClick = { result = calcular(num1, num2, "/")
+                            viewModel.addCalculation("$num1 + $num2 = $result")
+                                }) { Text("/") }
         }
 
         Text(text = "Resultado: $result", style = MaterialTheme.typography.bodyLarge)
