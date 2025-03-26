@@ -48,9 +48,8 @@ Desarrolle una aplicación móvil en **Android Studio** donde pueda aplicar los 
 | Criterio | Puntos |
 |----------|--------|
 | Implementación de Navigation Component y múltiples pantallas | 1.5 |
-| Uso adecuado de XML Layout y Jetpack Compose | 1.0 |
-| Implementación correcta de ViewModel y LiveData | 1.0 |
-| Personalización y almacenamiento de configuraciones con SharedPreferences | 0.5 |
+| Uso adecuado de XML Layout y Jetpack Compose | 1.25 |
+| Implementación correcta de ViewModel y LiveData | 1.25 |
 | Organización del código y documentación en GitHub | 1.0 |
 
 ---
