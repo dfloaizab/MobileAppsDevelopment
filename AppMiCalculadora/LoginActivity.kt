@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appcalculadora.MainActivity
 import com.example.appcalculadora.R
@@ -22,7 +23,7 @@ class LoginActivity<Bundle> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.login_layout)
 
         // Inicializar SharedPreferences
         sharedPreferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE)
@@ -114,4 +115,8 @@ fun logout() {
 
     startActivity(Intent(this, LoginActivity::class.java))
     finish()
+}
+
+fun getSharedPreferences(s: String, modePrivate: Any): Any {
+
 }
