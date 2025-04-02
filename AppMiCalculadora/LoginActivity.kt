@@ -2,6 +2,7 @@ package com.example.appcalculadora.main
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -21,7 +22,7 @@ class LoginActivity<Bundle> : AppCompatActivity() {
         private const val PREF_NAME = "LoginPrefs"
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
 
@@ -103,6 +104,7 @@ class LoginActivity<Bundle> : AppCompatActivity() {
 }
 
 // 4. Cerrar sesión (para incluir en MainActivity.kt)
+/*
 fun logout() {
     val sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE)
     sharedPreferences.edit().apply {
@@ -120,3 +122,4 @@ fun logout() {
 fun getSharedPreferences(s: String, modePrivate: Any): Any {
 
 }
+*/
