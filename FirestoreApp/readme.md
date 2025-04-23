@@ -110,7 +110,7 @@ Reemplace el contenido de `res/layout/activity_main.xml` con:
 Copia en `MainActivity.kt`:
 
 ```kotlin
-// Código Kotlin completo aquí (ver conversación anterior)
+
 ```
 
 ---
