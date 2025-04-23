@@ -1,5 +1,6 @@
-
-# Autenticación con Google (OAuth) en Android usando Firebase
+# Aplicaciones Móviles, 2025A
+# Universidad Libre, Cali
+## Autenticación con Google (OAuth) en Android usando Firebase
 
 Este documento le guía paso a paso para implementar autenticación con Google en una app Android utilizando Firebase Authentication.
 
