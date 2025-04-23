@@ -3,7 +3,7 @@
 # Universidad Libre, Cali
 # App Android con Firebase Firestore + Autenticación
 
-Paso a paso para crear Una aplicación Android básica para registrar e iniciar sesión con correo y contraseña usando **Firebase Authentication**, y guardar/leer información del usuario (nombre, edad y ciudad) usando **Firestore Database**.
+Paso a paso para crear una aplicación Android básica para registrar e iniciar sesión con correo y contraseña usando **Firebase Authentication**, y guardar/leer información del usuario (nombre, edad y ciudad) usando **Firestore Database**.
 
 ---
 
