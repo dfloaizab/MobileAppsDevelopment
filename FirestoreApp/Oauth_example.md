@@ -14,7 +14,7 @@ Este documento le guía paso a paso para implementar autenticación con Google e
 
 ## Paso 1: Configurar Firebase y Google Sign-In
 
-1. Vaya a tu [consola de Firebase](https://console.firebase.google.com)
+1. Vaya a su [consola de Firebase](https://console.firebase.google.com)
 2. Crea un nuevo proyecto (si no tiene uno)
 3. En el menú lateral, vaya a **Authentication > Métodos de inicio de sesión**
 4. Active **Google** y guarde los cambios
