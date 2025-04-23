@@ -137,3 +137,4 @@ Al ejecutar la app, el usuario verá un botón de "Iniciar sesión con Google". 
 
 - [Documentación oficial Firebase Authentication](https://firebase.google.com/docs/auth/android/google-signin)
 - [GoogleSignInOptions en Android](https://developers.google.com/identity/sign-in/android/start-integrating)
+- [Google API configuration (paso extra)](https://developers.google.com/identity/protocols/oauth2?hl=es-419)
