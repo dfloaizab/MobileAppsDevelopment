@@ -107,9 +107,123 @@ Reemplace el contenido de `res/layout/activity_main.xml` con:
 
 ## Paso 5: Código Kotlin de la lógica
 
-Copia en `MainActivity.kt`:
+ `MainActivity.kt`:
 
 ```kotlin
+package com.example.firestoreauthapp
+
+import android.os.Bundle
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+
+    private lateinit var emailInput: EditText
+    private lateinit var passwordInput: EditText
+    private lateinit var inputName: EditText
+    private lateinit var inputAge: EditText
+    private lateinit var inputCity: EditText
+    private lateinit var btnLogin: Button
+    private lateinit var btnSave: Button
+    private lateinit var outputText: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
+        emailInput = findViewById(R.id.emailInput)
+        passwordInput = findViewById(R.id.passwordInput)
+        inputName = findViewById(R.id.inputName)
+        inputAge = findViewById(R.id.inputAge)
+        inputCity = findViewById(R.id.inputCity)
+        btnLogin = findViewById(R.id.btnLogin)
+        btnSave = findViewById(R.id.btnSave)
+        outputText = findViewById(R.id.outputText)
+
+        btnLogin.setOnClickListener {
+            val email = emailInput.text.toString()
+            val pass = passwordInput.text.toString()
+            loginOrRegister(email, pass)
+        }
+
+        btnSave.setOnClickListener {
+            val name = inputName.text.toString()
+            val age = inputAge.text.toString()
+            val city = inputCity.text.toString()
+
+            if (auth.currentUser != null && name.isNotEmpty() && age.isNotEmpty() && city.isNotEmpty()) {
+                saveUserData(name, age.toInt(), city)
+            } else {
+                Toast.makeText(this, "Faltan datos o no has iniciado sesión", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        if (auth.currentUser != null) {
+            loadUsers()
+        }
+    }
+
+    private fun loginOrRegister(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
+            Toast.makeText(this, "Sesión iniciada", Toast.LENGTH_SHORT).show()
+            loadUsers()
+        }.addOnFailureListener {
+            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
+                Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
+                loadUsers()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun saveUserData(name: String, age: Int, city: String) {
+        val userId = auth.currentUser?.uid ?: return
+
+        val data = hashMapOf(
+            "nombre" to name,
+            "edad" to age,
+            "ciudad" to city,
+            "userId" to userId
+        )
+
+        db.collection("usuarios")
+            .add(data)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Datos guardados", Toast.LENGTH_SHORT).show()
+                loadUsers()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al guardar", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun loadUsers() {
+        db.collection("usuarios")
+            .get()
+            .addOnSuccessListener { result ->
+                val data = StringBuilder()
+                for (doc in result) {
+                    val nombre = doc.getString("nombre")
+                    val edad = doc.getLong("edad")
+                    val ciudad = doc.getString("ciudad")
+                    data.append("- $nombre, $edad años, $ciudad\n")
+                }
+                outputText.text = data.toString()
+            }
+            .addOnFailureListener {
+                outputText.text = "Error al leer datos"
+            }
+    }
+}
 
 ```
 
@@ -140,7 +254,7 @@ service cloud.firestore {
 
 ---
 
-## 🔒 Autenticación en Firebase
+## Autenticación en Firebase
 
 En su proyecto Firebase:
 
