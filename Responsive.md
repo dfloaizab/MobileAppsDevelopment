@@ -163,9 +163,3 @@ class MainActivity : AppCompatActivity() {
 - [Jetpack Compose](https://developer.android.com/jetpack/compose)
 - [Material Design Guidelines](https://m3.material.io/)
 
----
-
-## 🧵 Opcional
-
-Si deseas una versión de este proyecto en Jetpack Compose o en un archivo `.zip` para importar directamente en Android Studio, puedo prepararlo por ti. ¡Solo pídelo!
-
