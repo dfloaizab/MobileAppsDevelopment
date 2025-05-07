@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
     private fun addSampleMarker() {
         val marker = Marker(mapView)
         //marker.position = GeoPoint(40.416775, -3.703790) // Madrid
-        marker.position = GeoPoint(3.451647, -76.531982) // Madrid
+        marker.position = GeoPoint(3.451647, -76.531982) // Santiago de Cali, Valle del Cauca
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         marker.title = "Santiago de Cali"
         marker.snippet = "Capital del Valle del Cauca"
