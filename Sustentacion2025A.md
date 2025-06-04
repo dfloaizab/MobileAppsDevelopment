@@ -80,15 +80,14 @@
 
 | Criterio                             | Puntaje Máximo |
 |-------------------------------------|----------------|
-| Funcionalidad Mínima Operativa      | 20 pts         |
+| Funcionalidad Mínima Operativa      | 25 pts         |
 | Diseño de Interfaz (UI/UX)          | 15 pts         |
 | Separación de Responsabilidades     | 10 pts         |
 | Adaptabilidad                       | 5 pts          |
 | Manejo de Errores y Validaciones    | 10 pts         |
 | Autenticación Segura                | 10 pts         |
 | Organización y Limpieza del Código | 10 pts         |
-| Presentación y Sustentación         | 10 pts         |
-| Documentación Técnica               | 10 pts         |
+| Presentación y Sustentación         | 15 pts         |
 | **Total**                           | **100 pts**    |
 
 ---
