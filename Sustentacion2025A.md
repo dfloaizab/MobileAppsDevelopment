@@ -1,5 +1,5 @@
 # Universidad Libre, Cali
-## Desarrollo de Aplicaciones Móviles
+## Desarrollo de Aplicaciones Móviles, 2025A
 ## Lista de Chequeo para Sustentación de una Aplicación Móvil en Kotlin (PMV)
 
 ### Objetivos del Proyecto
